@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03E696801B892E400086D3F1 /* FastContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */; };
+		03E696861B89310C0086D3F1 /* Blah.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E696851B89310C0086D3F1 /* Blah.m */; };
+		03E696891B8932C30086D3F1 /* FastContactViewStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E696881B8932C30086D3F1 /* FastContactViewStateHelper.swift */; };
+		03E6968D1B894CD60086D3F1 /* EmptyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6968C1B894CD60086D3F1 /* EmptyListItem.swift */; };
+		03F592E71B88FD850068BA42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F592E61B88FD850068BA42 /* AppDelegate.swift */; };
+		03F592EA1B88FD850068BA42 /* FastContact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03F592E81B88FD850068BA42 /* FastContact.xcdatamodeld */; };
+		03F592EC1B88FD850068BA42 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F592EB1B88FD850068BA42 /* MasterViewController.swift */; };
+		03F592EE1B88FD850068BA42 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F592ED1B88FD850068BA42 /* DetailViewController.swift */; };
+		03F592F11B88FD850068BA42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F592EF1B88FD850068BA42 /* Main.storyboard */; };
+		03F592F31B88FD850068BA42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F592F21B88FD850068BA42 /* Images.xcassets */; };
+		03F592F61B88FD850068BA42 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F592F41B88FD850068BA42 /* LaunchScreen.xib */; };
+		03F593021B88FD850068BA42 /* FastContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F593011B88FD850068BA42 /* FastContactTests.swift */; };
+		03F593131B88FE7F0068BA42 /* FastContactListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5930E1B88FE7F0068BA42 /* FastContactListManager.swift */; };
+		03F593141B88FE7F0068BA42 /* FastContactViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5930F1B88FE7F0068BA42 /* FastContactViewState.swift */; };
+		03F593151B88FE7F0068BA42 /* IListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F593101B88FE7F0068BA42 /* IListItem.swift */; };
+		03F593161B88FE7F0068BA42 /* PhoneContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F593111B88FE7F0068BA42 /* PhoneContact.swift */; };
+		7903BD1245DCA2E50E61640B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B7E37DB0CAEA837CD2068A /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03F592FC1B88FD850068BA42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03F592D91B88FD850068BA42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03F592E01B88FD850068BA42;
+			remoteInfo = FastContact;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastContactTableViewController.swift; sourceTree = "<group>"; };
+		03E696831B89310B0086D3F1 /* FastContact-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FastContact-Bridging-Header.h"; sourceTree = "<group>"; };
+		03E696841B89310C0086D3F1 /* Blah.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blah.h; sourceTree = "<group>"; };
+		03E696851B89310C0086D3F1 /* Blah.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blah.m; sourceTree = "<group>"; };
+		03E696881B8932C30086D3F1 /* FastContactViewStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactViewStateHelper.swift; path = Core/FastContactViewStateHelper.swift; sourceTree = SOURCE_ROOT; };
+		03E6968C1B894CD60086D3F1 /* EmptyListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyListItem.swift; path = Core/EmptyListItem.swift; sourceTree = SOURCE_ROOT; };
+		03F592E11B88FD850068BA42 /* FastContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F592E51B88FD850068BA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03F592E61B88FD850068BA42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03F592E91B88FD850068BA42 /* FastContact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FastContact.xcdatamodel; sourceTree = "<group>"; };
+		03F592EB1B88FD850068BA42 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		03F592ED1B88FD850068BA42 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		03F592F01B88FD850068BA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03F592F21B88FD850068BA42 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		03F592F51B88FD850068BA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		03F592FB1B88FD850068BA42 /* FastContactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastContactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F593001B88FD850068BA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03F593011B88FD850068BA42 /* FastContactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastContactTests.swift; sourceTree = "<group>"; };
+		03F5930E1B88FE7F0068BA42 /* FastContactListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastContactListManager.swift; sourceTree = "<group>"; };
+		03F5930F1B88FE7F0068BA42 /* FastContactViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastContactViewState.swift; sourceTree = "<group>"; };
+		03F593101B88FE7F0068BA42 /* IListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IListItem.swift; sourceTree = "<group>"; };
+		03F593111B88FE7F0068BA42 /* PhoneContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneContact.swift; sourceTree = "<group>"; };
+		8450AD0BB4AB0DDF287504D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A8B7E37DB0CAEA837CD2068A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5906F01C70C58875530D24B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03F592DE1B88FD850068BA42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7903BD1245DCA2E50E61640B /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F592F81B88FD850068BA42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03E696871B89328D0086D3F1 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				03E696881B8932C30086D3F1 /* FastContactViewStateHelper.swift */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
+		03F592D81B88FD850068BA42 = {
+			isa = PBXGroup;
+			children = (
+				03F592E31B88FD850068BA42 /* FastContact */,
+				03F592FE1B88FD850068BA42 /* FastContactTests */,
+				03F592E21B88FD850068BA42 /* Products */,
+				7091B4C0C028F4C7FC9B4D51 /* Pods */,
+				650D8D2EF1DA7998C40EAC91 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		03F592E21B88FD850068BA42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03F592E11B88FD850068BA42 /* FastContact.app */,
+				03F592FB1B88FD850068BA42 /* FastContactTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03F592E31B88FD850068BA42 /* FastContact */ = {
+			isa = PBXGroup;
+			children = (
+				03E696871B89328D0086D3F1 /* helper */,
+				03F5931A1B88FEA60068BA42 /* protocol */,
+				03F593191B88FE9A0068BA42 /* enum */,
+				03F593181B88FE850068BA42 /* manager */,
+				03F5930D1B88FE360068BA42 /* model */,
+				03F5930C1B88FE230068BA42 /* view */,
+				03F5930B1B88FE0F0068BA42 /* controller */,
+				03F592E41B88FD850068BA42 /* Supporting Files */,
+			);
+			path = FastContact;
+			sourceTree = "<group>";
+		};
+		03F592E41B88FD850068BA42 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03F592F21B88FD850068BA42 /* Images.xcassets */,
+				03F592E81B88FD850068BA42 /* FastContact.xcdatamodeld */,
+				03F592E51B88FD850068BA42 /* Info.plist */,
+				03E696841B89310C0086D3F1 /* Blah.h */,
+				03E696851B89310C0086D3F1 /* Blah.m */,
+				03E696831B89310B0086D3F1 /* FastContact-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03F592FE1B88FD850068BA42 /* FastContactTests */ = {
+			isa = PBXGroup;
+			children = (
+				03F593011B88FD850068BA42 /* FastContactTests.swift */,
+				03F592FF1B88FD850068BA42 /* Supporting Files */,
+			);
+			path = FastContactTests;
+			sourceTree = "<group>";
+		};
+		03F592FF1B88FD850068BA42 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03F593001B88FD850068BA42 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03F5930B1B88FE0F0068BA42 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */,
+				03F592E61B88FD850068BA42 /* AppDelegate.swift */,
+				03F592EB1B88FD850068BA42 /* MasterViewController.swift */,
+				03F592ED1B88FD850068BA42 /* DetailViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		03F5930C1B88FE230068BA42 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				03F592EF1B88FD850068BA42 /* Main.storyboard */,
+				03F592F41B88FD850068BA42 /* LaunchScreen.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		03F5930D1B88FE360068BA42 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				03F593111B88FE7F0068BA42 /* PhoneContact.swift */,
+				03E6968C1B894CD60086D3F1 /* EmptyListItem.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		03F593181B88FE850068BA42 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				03F5930E1B88FE7F0068BA42 /* FastContactListManager.swift */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		03F593191B88FE9A0068BA42 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				03F5930F1B88FE7F0068BA42 /* FastContactViewState.swift */,
+			);
+			name = enum;
+			sourceTree = "<group>";
+		};
+		03F5931A1B88FEA60068BA42 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				03F593101B88FE7F0068BA42 /* IListItem.swift */,
+			);
+			name = protocol;
+			sourceTree = "<group>";
+		};
+		650D8D2EF1DA7998C40EAC91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8B7E37DB0CAEA837CD2068A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7091B4C0C028F4C7FC9B4D51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8450AD0BB4AB0DDF287504D8 /* Pods.debug.xcconfig */,
+				D5906F01C70C58875530D24B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03F592E01B88FD850068BA42 /* FastContact */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03F593051B88FD850068BA42 /* Build configuration list for PBXNativeTarget "FastContact" */;
+			buildPhases = (
+				16A88D8ADC73CE92FBEFF710 /* Check Pods Manifest.lock */,
+				03F592DD1B88FD850068BA42 /* Sources */,
+				03F592DE1B88FD850068BA42 /* Frameworks */,
+				03F592DF1B88FD850068BA42 /* Resources */,
+				2F77AC51CB0FEFA214BB9DC3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastContact;
+			productName = FastContact;
+			productReference = 03F592E11B88FD850068BA42 /* FastContact.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03F592FA1B88FD850068BA42 /* FastContactTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03F593081B88FD850068BA42 /* Build configuration list for PBXNativeTarget "FastContactTests" */;
+			buildPhases = (
+				03F592F71B88FD850068BA42 /* Sources */,
+				03F592F81B88FD850068BA42 /* Frameworks */,
+				03F592F91B88FD850068BA42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03F592FD1B88FD850068BA42 /* PBXTargetDependency */,
+			);
+			name = FastContactTests;
+			productName = FastContactTests;
+			productReference = 03F592FB1B88FD850068BA42 /* FastContactTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03F592D91B88FD850068BA42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Connecting Open Time, LLC";
+				TargetAttributes = {
+					03F592E01B88FD850068BA42 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					03F592FA1B88FD850068BA42 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 03F592E01B88FD850068BA42;
+					};
+				};
+			};
+			buildConfigurationList = 03F592DC1B88FD850068BA42 /* Build configuration list for PBXProject "FastContact" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03F592D81B88FD850068BA42;
+			productRefGroup = 03F592E21B88FD850068BA42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03F592E01B88FD850068BA42 /* FastContact */,
+				03F592FA1B88FD850068BA42 /* FastContactTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03F592DF1B88FD850068BA42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F592F11B88FD850068BA42 /* Main.storyboard in Resources */,
+				03F592F61B88FD850068BA42 /* LaunchScreen.xib in Resources */,
+				03F592F31B88FD850068BA42 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F592F91B88FD850068BA42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16A88D8ADC73CE92FBEFF710 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2F77AC51CB0FEFA214BB9DC3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03F592DD1B88FD850068BA42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E696801B892E400086D3F1 /* FastContactTableViewController.swift in Sources */,
+				03E6968D1B894CD60086D3F1 /* EmptyListItem.swift in Sources */,
+				03F592EA1B88FD850068BA42 /* FastContact.xcdatamodeld in Sources */,
+				03E696891B8932C30086D3F1 /* FastContactViewStateHelper.swift in Sources */,
+				03F593141B88FE7F0068BA42 /* FastContactViewState.swift in Sources */,
+				03F592E71B88FD850068BA42 /* AppDelegate.swift in Sources */,
+				03F593161B88FE7F0068BA42 /* PhoneContact.swift in Sources */,
+				03F592EC1B88FD850068BA42 /* MasterViewController.swift in Sources */,
+				03F593151B88FE7F0068BA42 /* IListItem.swift in Sources */,
+				03E696861B89310C0086D3F1 /* Blah.m in Sources */,
+				03F592EE1B88FD850068BA42 /* DetailViewController.swift in Sources */,
+				03F593131B88FE7F0068BA42 /* FastContactListManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F592F71B88FD850068BA42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F593021B88FD850068BA42 /* FastContactTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03F592FD1B88FD850068BA42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03F592E01B88FD850068BA42 /* FastContact */;
+			targetProxy = 03F592FC1B88FD850068BA42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03F592EF1B88FD850068BA42 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03F592F01B88FD850068BA42 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03F592F41B88FD850068BA42 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03F592F51B88FD850068BA42 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03F593031B88FD850068BA42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03F593041B88FD850068BA42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03F593061B88FD850068BA42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8450AD0BB4AB0DDF287504D8 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = FastContact/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FastContact/FastContact-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		03F593071B88FD850068BA42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5906F01C70C58875530D24B /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = FastContact/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FastContact/FastContact-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		03F593091B88FD850068BA42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FastContactTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastContact.app/FastContact";
+			};
+			name = Debug;
+		};
+		03F5930A1B88FD850068BA42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FastContactTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastContact.app/FastContact";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03F592DC1B88FD850068BA42 /* Build configuration list for PBXProject "FastContact" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F593031B88FD850068BA42 /* Debug */,
+				03F593041B88FD850068BA42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03F593051B88FD850068BA42 /* Build configuration list for PBXNativeTarget "FastContact" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F593061B88FD850068BA42 /* Debug */,
+				03F593071B88FD850068BA42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03F593081B88FD850068BA42 /* Build configuration list for PBXNativeTarget "FastContactTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F593091B88FD850068BA42 /* Debug */,
+				03F5930A1B88FD850068BA42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03F592E81B88FD850068BA42 /* FastContact.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03F592E91B88FD850068BA42 /* FastContact.xcdatamodel */,
+			);
+			currentVersion = 03F592E91B88FD850068BA42 /* FastContact.xcdatamodel */;
+			path = FastContact.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 03F592D91B88FD850068BA42 /* Project object */;
+}
