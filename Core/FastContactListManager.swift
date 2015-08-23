@@ -11,15 +11,17 @@ import UIKit
 public class FastContactListManager {
     
     private var _onBuildListFilterBlocks: Array<()->Void> = Array();
+    private var _updateBlock: ()->Void;
     private var _onBuildListGroupingBlocks: Array<()->Void> = Array();
     private var _lists: Array<Array<Array<IListItem>>> = Array<Array<Array<IListItem>>>();
     
-    public init(listCount: Int) {
+    public init(listCount: Int, updateBlock: ()->Void) {
+        self._updateBlock = updateBlock;
         self._lists = self._getDefaultLists(listCount);
     }
     
     public func updateListsForState(state: FastContactViewState) {
-        
+        self._updateBlock();
     }
     
     public func getLists() -> Array<Array<Array<IListItem>>> {

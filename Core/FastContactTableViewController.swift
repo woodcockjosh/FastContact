@@ -16,17 +16,31 @@ class FastContactTableViewController: UITableViewController {
     internal var _lists: Array<Array<Array<IListItem>>>!;
     
     @IBAction func provideAccessWithNoAccessClicked(sender: UIButton) {
-        
+        APAddressBook.requestAccess { (didProvideAccess: Bool, error: NSError!) -> Void in
+            var state: FastContactViewState!;
+            if(didProvideAccess) {
+                state = .ManyWithAccessAndFiller;
+            }else{
+                state = FastContactHelper.getViewStateWithListCountAndAccess(self._lists[self._currentListItem]);
+            }
+            self._fastContactListManager.updateListsForState(state);
+        }
     }
     
     @IBAction func provideAccessWithBlockedAccessClicked(sender: UIButton) {
-        
+        if(Constant.IOS_MAIN_VERSION >= 8.0) {
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!);
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self._currentViewState       = FastContactViewStateHelper.getDefaultViewStateBasedOnPhoneContactAccess();
-        self._fastContactListManager = FastContactListManager(listCount: self.getListCount());
+        self._currentViewState       = FastContactHelper.getDefaultViewStateBasedOnPhoneContactAccess();
+        self._fastContactListManager = FastContactListManager(listCount: self.getListCount(), updateBlock: {()->Void in
+            self._lists = self._fastContactListManager.getLists();
+            self._currentViewState = FastContactHelper.getViewStateWithListCountAndAccess(self._lists[self._currentListItem]);
+            self.tableView.reloadData();
+        });
         self._currentListItem        = self.getDefaultListItem();
         self._lists                  = self._fastContactListManager.getLists();
     }
@@ -93,7 +107,7 @@ class FastContactTableViewController: UITableViewController {
         case .EmptyNoAccess:
             self._setProvideNoAccessButton(button);
             break;
-        case .EmptyBlockedAccess:
+        case .EmptyBlockedAccessAtLeastIOS8:
             self._setProvideBlockedAccessButton(button);
             break;
         default:
@@ -115,7 +129,11 @@ class FastContactTableViewController: UITableViewController {
             cell = getEmptyTableViewCell(tableView, state: state);
             cell = _getEmptyCellWithAttributes(cell);
             break;
-        case .EmptyBlockedAccess:
+        case .EmptyBlockedAccessAtLeastIOS8:
+            cell = getEmptyTableViewCell(tableView, state: state);
+            cell = _getEmptyCellWithAttributes(cell);
+            break;
+        case .EmptyBlockedAccessLessThanIOS8:
             cell = getEmptyTableViewCell(tableView, state: state);
             cell = _getEmptyCellWithAttributes(cell);
             break;
@@ -156,6 +174,6 @@ class FastContactTableViewController: UITableViewController {
     }
     
     private func _setProvideBlockedAccessButton(button: UIButton) {
-        button.addTarget(self, action: "provideAccessWithBlockedAccessClicked", forControlEvents: UIControlEvents.TouchUpInside);
+        button.addTarget(self, action: "provideAccessWithBlockedAccessClicked:", forControlEvents: UIControlEvents.TouchUpInside);
     }
 }
