@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="985" y="-633"/>
         </scene>
-        <!--Fast Contact Table View Controller-->
+        <!--Some Table View Controller-->
         <scene sceneID="plO-tD-Usp">
             <objects>
-                <tableViewController id="to3-kV-2zZ" customClass="FastContactTableViewController" customModule="FastContact" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="to3-kV-2zZ" customClass="SomeTableViewController" customModule="FastContact" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="S8C-4C-fo8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                                 <constraint firstAttribute="height" constant="48" id="tTT-eu-zEX"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -62,23 +62,81 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="no_access_empty_cell" rowHeight="80" id="MXx-kR-55T">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="no_access_empty_cell" rowHeight="144" id="MXx-kR-55T">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MXx-kR-55T" id="RmH-An-onW">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No access message here" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHX-JN-ZJa">
+                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-s0-MkQ">
+                                            <rect key="frame" x="16" y="80" width="568" height="48"/>
+                                            <subviews>
+                                                <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="o4G-Gn-OsJ">
+                                                    <rect key="frame" x="177" y="0.0" width="215" height="48"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="QC3-Y1-Iky"/>
+                                                        <constraint firstAttribute="width" constant="215" id="fGv-eO-8Rh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="Give access to phone contacts">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="o4G-Gn-OsJ" secondAttribute="bottom" id="YL4-ov-1zO"/>
+                                                <constraint firstAttribute="centerX" secondItem="o4G-Gn-OsJ" secondAttribute="centerX" id="iDF-1h-azl"/>
+                                                <constraint firstItem="o4G-Gn-OsJ" firstAttribute="top" secondItem="8u2-s0-MkQ" secondAttribute="top" id="zeX-KV-Gsh"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="YL4-ov-1zO"/>
+                                                </mask>
+                                            </variation>
+                                        </view>
+                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-iD-ACK">
                                             <rect key="frame" x="16" y="16" width="568" height="48"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="11" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Empty message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c15-LF-SKl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="568" height="48"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="uyX-1x-hLw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="uyX-1x-hLw"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="c15-LF-SKl" firstAttribute="top" secondItem="b2e-iD-ACK" secondAttribute="top" id="BHg-ee-ft1"/>
+                                                <constraint firstItem="c15-LF-SKl" firstAttribute="top" secondItem="b2e-iD-ACK" secondAttribute="top" id="Fic-i1-q1W"/>
+                                                <constraint firstAttribute="trailing" secondItem="c15-LF-SKl" secondAttribute="trailing" id="QkK-VN-tSV"/>
+                                                <constraint firstItem="c15-LF-SKl" firstAttribute="leading" secondItem="b2e-iD-ACK" secondAttribute="leading" id="ohU-Gd-CeW"/>
+                                                <constraint firstAttribute="bottom" secondItem="c15-LF-SKl" secondAttribute="bottom" id="zwZ-pK-irw"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="BHg-ee-ft1"/>
+                                                    <exclude reference="Fic-i1-q1W"/>
+                                                </mask>
+                                            </variation>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="IHX-JN-ZJa" secondAttribute="bottom" constant="8" id="Hxi-4X-Cy7"/>
-                                        <constraint firstItem="IHX-JN-ZJa" firstAttribute="top" secondItem="RmH-An-onW" secondAttribute="topMargin" constant="8" id="SDn-Dg-rP2"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="IHX-JN-ZJa" secondAttribute="trailing" constant="8" id="Zon-TU-DOi"/>
-                                        <constraint firstItem="IHX-JN-ZJa" firstAttribute="leading" secondItem="RmH-An-onW" secondAttribute="leadingMargin" constant="8" id="mCJ-ru-WCO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8u2-s0-MkQ" secondAttribute="trailing" constant="8" id="BnT-dh-kGg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="8u2-s0-MkQ" secondAttribute="bottom" constant="8" id="Hpr-v3-JXU"/>
+                                        <constraint firstItem="b2e-iD-ACK" firstAttribute="top" secondItem="RmH-An-onW" secondAttribute="topMargin" constant="8" id="JJW-gb-4YG"/>
+                                        <constraint firstItem="8u2-s0-MkQ" firstAttribute="leading" secondItem="RmH-An-onW" secondAttribute="leadingMargin" constant="8" id="Qwe-DM-2dx"/>
+                                        <constraint firstItem="b2e-iD-ACK" firstAttribute="leading" secondItem="RmH-An-onW" secondAttribute="leadingMargin" constant="8" id="brX-FQ-SLk"/>
+                                        <constraint firstItem="8u2-s0-MkQ" firstAttribute="height" secondItem="b2e-iD-ACK" secondAttribute="height" id="myn-BT-Vgf"/>
+                                        <constraint firstItem="8u2-s0-MkQ" firstAttribute="top" secondItem="b2e-iD-ACK" secondAttribute="bottom" constant="16" id="nVc-9a-3UJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="b2e-iD-ACK" secondAttribute="trailing" constant="8" id="qCo-pk-35I"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -89,8 +147,8 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blocked access message here" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FH-Ym-0Zf">
                                             <rect key="frame" x="16" y="16" width="568" height="48"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -109,8 +167,8 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty cell message here" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4W-Of-oQe">
                                             <rect key="frame" x="16" y="16" width="568" height="48"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

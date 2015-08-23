@@ -10,54 +10,33 @@ import UIKit
 
 public class FastContactListManager {
     
-    private var _filterBlocks: Array<()->Void> = Array();
+    private var _onBuildListFilterBlocks: Array<()->Void> = Array();
+    private var _onBuildListGroupingBlocks: Array<()->Void> = Array();
+    private var _lists: Array<Array<Array<IListItem>>> = Array<Array<Array<IListItem>>>();
     
-    public func getListsForState(state: FastContactViewState, listCount: Int)->Array<Array<IListItem>> {
-        var lists = Array<Array<IListItem>>();
+    public init(listCount: Int) {
+        self._lists = self._getDefaultLists(listCount);
+    }
+    
+    public func updateListsForState(state: FastContactViewState) {
+        
+    }
+    
+    public func getLists() -> Array<Array<Array<IListItem>>> {
+        return _lists;
+    }
+    
+    private func _getDefaultLists(listCount: Int)->Array<Array<Array<IListItem>>> {
+        var lists = Array<Array<Array<IListItem>>>();
         for (var i = 0; i < listCount; i++) {
-            lists.append(getListForState(state));
+            var list = Array<Array<IListItem>>();
+            var oneEmptyListSection = Array<IListItem>();
+            var oneEmptyListItem = EmptyListItem();
+            
+            oneEmptyListSection.append(oneEmptyListItem);
+            list.append(oneEmptyListSection);
+            lists.append(list);
         }
         return lists;
     }
-    
-    public func getListForState(state: FastContactViewState)->Array<IListItem>{
-        var list: Array<IListItem>!;
-        
-        switch(state){
-        case .EmptyNoAccess:
-            list = _getEmptyNoAccessList();
-            break;
-        default:
-            list = Array<IListItem>();
-            break;
-        }
-        
-        return list;
-    }
-    
-    private func _getEmptyNoAccessList() -> Array<IListItem> {
-        var list = Array<IListItem>();
-        
-        var item = RequestPermissionListItem();
-        
-        return list;
-    }
-    
-    private func _getOneItemNoAccessList() -> Array<IListItem> {
-        // TODO
-        return Array<IListItem>();
-    }
-    
-    private func _getEmptyWithAccess() -> Array<IListItem> {
-        return Array<IListItem>();
-    }
-    
-    private func _getManyItemsWithAccessAndHelp() -> Array<IListItem> {
-        return Array<IListItem>();
-    }
-    
-    private func _getManyItemsWithAccess() -> Array<IListItem> {
-        return Array<IListItem>();
-    }
-    
 }

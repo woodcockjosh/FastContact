@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03C8ECB41B8A17D70048AB51 /* FastContactTableViewControllerChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8ECB31B8A17D70048AB51 /* FastContactTableViewControllerChild.swift */; };
+		03C8ECB61B8A18620048AB51 /* SomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8ECB51B8A18620048AB51 /* SomeTableViewController.swift */; };
 		03E696801B892E400086D3F1 /* FastContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */; };
-		03E696861B89310C0086D3F1 /* Blah.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E696851B89310C0086D3F1 /* Blah.m */; };
 		03E696891B8932C30086D3F1 /* FastContactViewStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E696881B8932C30086D3F1 /* FastContactViewStateHelper.swift */; };
 		03E6968D1B894CD60086D3F1 /* EmptyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6968C1B894CD60086D3F1 /* EmptyListItem.swift */; };
 		03F592E71B88FD850068BA42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F592E61B88FD850068BA42 /* AppDelegate.swift */; };
@@ -37,10 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastContactTableViewController.swift; sourceTree = "<group>"; };
+		03C8ECB31B8A17D70048AB51 /* FastContactTableViewControllerChild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactTableViewControllerChild.swift; path = ../Core/FastContactTableViewControllerChild.swift; sourceTree = "<group>"; };
+		03C8ECB51B8A18620048AB51 /* SomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeTableViewController.swift; sourceTree = "<group>"; };
+		03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactTableViewController.swift; path = ../Core/FastContactTableViewController.swift; sourceTree = "<group>"; };
 		03E696831B89310B0086D3F1 /* FastContact-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FastContact-Bridging-Header.h"; sourceTree = "<group>"; };
-		03E696841B89310C0086D3F1 /* Blah.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blah.h; sourceTree = "<group>"; };
-		03E696851B89310C0086D3F1 /* Blah.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blah.m; sourceTree = "<group>"; };
 		03E696881B8932C30086D3F1 /* FastContactViewStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactViewStateHelper.swift; path = Core/FastContactViewStateHelper.swift; sourceTree = SOURCE_ROOT; };
 		03E6968C1B894CD60086D3F1 /* EmptyListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyListItem.swift; path = Core/EmptyListItem.swift; sourceTree = SOURCE_ROOT; };
 		03F592E11B88FD850068BA42 /* FastContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,10 +56,10 @@
 		03F592FB1B88FD850068BA42 /* FastContactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastContactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F593001B88FD850068BA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F593011B88FD850068BA42 /* FastContactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastContactTests.swift; sourceTree = "<group>"; };
-		03F5930E1B88FE7F0068BA42 /* FastContactListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastContactListManager.swift; sourceTree = "<group>"; };
-		03F5930F1B88FE7F0068BA42 /* FastContactViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastContactViewState.swift; sourceTree = "<group>"; };
-		03F593101B88FE7F0068BA42 /* IListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IListItem.swift; sourceTree = "<group>"; };
-		03F593111B88FE7F0068BA42 /* PhoneContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneContact.swift; sourceTree = "<group>"; };
+		03F5930E1B88FE7F0068BA42 /* FastContactListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactListManager.swift; path = ../Core/FastContactListManager.swift; sourceTree = "<group>"; };
+		03F5930F1B88FE7F0068BA42 /* FastContactViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactViewState.swift; path = ../Core/FastContactViewState.swift; sourceTree = "<group>"; };
+		03F593101B88FE7F0068BA42 /* IListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IListItem.swift; path = ../Core/IListItem.swift; sourceTree = "<group>"; };
+		03F593111B88FE7F0068BA42 /* PhoneContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneContact.swift; path = ../Core/PhoneContact.swift; sourceTree = "<group>"; };
 		8450AD0BB4AB0DDF287504D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A8B7E37DB0CAEA837CD2068A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5906F01C70C58875530D24B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,8 +133,6 @@
 				03F592F21B88FD850068BA42 /* Images.xcassets */,
 				03F592E81B88FD850068BA42 /* FastContact.xcdatamodeld */,
 				03F592E51B88FD850068BA42 /* Info.plist */,
-				03E696841B89310C0086D3F1 /* Blah.h */,
-				03E696851B89310C0086D3F1 /* Blah.m */,
 				03E696831B89310B0086D3F1 /* FastContact-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -163,6 +162,7 @@
 				03F592E61B88FD850068BA42 /* AppDelegate.swift */,
 				03F592EB1B88FD850068BA42 /* MasterViewController.swift */,
 				03F592ED1B88FD850068BA42 /* DetailViewController.swift */,
+				03C8ECB51B8A18620048AB51 /* SomeTableViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -205,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				03F593101B88FE7F0068BA42 /* IListItem.swift */,
+				03C8ECB31B8A17D70048AB51 /* FastContactTableViewControllerChild.swift */,
 			);
 			name = protocol;
 			sourceTree = "<group>";
@@ -368,11 +369,12 @@
 				03F593141B88FE7F0068BA42 /* FastContactViewState.swift in Sources */,
 				03F592E71B88FD850068BA42 /* AppDelegate.swift in Sources */,
 				03F593161B88FE7F0068BA42 /* PhoneContact.swift in Sources */,
+				03C8ECB61B8A18620048AB51 /* SomeTableViewController.swift in Sources */,
 				03F592EC1B88FD850068BA42 /* MasterViewController.swift in Sources */,
 				03F593151B88FE7F0068BA42 /* IListItem.swift in Sources */,
-				03E696861B89310C0086D3F1 /* Blah.m in Sources */,
 				03F592EE1B88FD850068BA42 /* DetailViewController.swift in Sources */,
 				03F593131B88FE7F0068BA42 /* FastContactListManager.swift in Sources */,
+				03C8ECB41B8A17D70048AB51 /* FastContactTableViewControllerChild.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

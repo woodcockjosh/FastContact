@@ -10,12 +10,25 @@ import UIKit
 
 class FastContactTableViewController: UITableViewController {
     
-    private var _viewState: FastContactViewState!;
+    private var _currentViewState: FastContactViewState!;
+    internal var _fastContactListManager: FastContactListManager!;
+    internal var _currentListItem: Int!;
+    internal var _lists: Array<Array<Array<IListItem>>>!;
+    
+    @IBAction func provideAccessWithNoAccessClicked(sender: UIButton) {
+        
+    }
+    
+    @IBAction func provideAccessWithBlockedAccessClicked(sender: UIButton) {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self._viewState = FastContactViewState.EmptyNoAccess;
+        self._currentViewState       = FastContactViewStateHelper.getDefaultViewStateBasedOnPhoneContactAccess();
+        self._fastContactListManager = FastContactListManager(listCount: self.getListCount());
+        self._currentListItem        = self.getDefaultListItem();
+        self._lists                  = self._fastContactListManager.getLists();
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,68 +39,123 @@ class FastContactTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return _lists[_currentListItem].count;
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return _lists[_currentListItem][section].count;
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        let cell = _getTableViewCellForState(tableView, cellForRowAtIndexPath: indexPath, state: _currentViewState);
+        return cell;
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var list = _lists[_currentListItem];
+        var section = list[indexPath.section];
+        var row = section[indexPath.row];
+        
+        if(!(row is EmptyListItem)) {
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath);
+        }else{
+            return self._getEmptyTableViewCellHeight();
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    /// MARK FastContactTableViewController
+    
+    internal func getListCount() -> Int {
+        return 1;
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    internal func getDefaultListItem() -> Int {
+        return 0;
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+    
+    internal func getEmptyTableViewCell(tableView: UITableView, state: FastContactViewState) -> UITableViewCell {
+        return UITableViewCell();
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    internal func getNonEmptyTableViewCell(tableView: UITableView, state: FastContactViewState) -> UITableViewCell {
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("contact_cell") as! UITableViewCell;
+        
+        return cell;
     }
-    */
-
+    
+    internal func setViewState(state: FastContactViewState) {
+        self._currentViewState = state;
+    }
+    
+    internal func setProvideAccessButton(button: UIButton) {
+        
+        switch(_currentViewState!) {
+        case .EmptyNoAccess:
+            self._setProvideNoAccessButton(button);
+            break;
+        case .EmptyBlockedAccess:
+            self._setProvideBlockedAccessButton(button);
+            break;
+        default:
+            break;
+        }
+    }
+    
+    /// MARK Private methods
+    
+    private func _getTableViewCellForState(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, state: FastContactViewState) -> UITableViewCell {
+        var cell: UITableViewCell!;
+        
+        switch(state) {
+        case .EmptyWithAccess:
+            cell = getEmptyTableViewCell(tableView, state: state);
+            cell = _getEmptyCellWithAttributes(cell);
+            break;
+        case .EmptyNoAccess:
+            cell = getEmptyTableViewCell(tableView, state: state);
+            cell = _getEmptyCellWithAttributes(cell);
+            break;
+        case .EmptyBlockedAccess:
+            cell = getEmptyTableViewCell(tableView, state: state);
+            cell = _getEmptyCellWithAttributes(cell);
+            break;
+        case .ManyWithAccessNoFiller:
+            cell = getNonEmptyTableViewCell(tableView, state: state);
+            break;
+        case .ManyWithAccessAndFiller:
+            cell = getNonEmptyTableViewCell(tableView, state: state);
+            break;
+        default:
+            cell = UITableViewCell();
+            break;
+        }
+        
+        return cell;
+    }
+ 
+    private func _getEmptyCellWithAttributes(cell: UITableViewCell) -> UITableViewCell {
+        cell.selectionStyle = .None;
+        
+        return cell;
+    }
+    
+    private func _getEmptyTableViewCellHeight() -> CGFloat {
+        var height: CGFloat = tableView.frame.height;
+        
+        if(navigationController != nil) {
+            height -= navigationController!.navigationBar.frame.height;
+        }
+        
+        height -= 20;
+        
+        return  height;
+    }
+    
+    private func _setProvideNoAccessButton(button: UIButton) {
+        button.addTarget(self, action: "provideAccessWithNoAccessClicked:", forControlEvents: UIControlEvents.TouchUpInside);
+    }
+    
+    private func _setProvideBlockedAccessButton(button: UIButton) {
+        button.addTarget(self, action: "provideAccessWithBlockedAccessClicked", forControlEvents: UIControlEvents.TouchUpInside);
+    }
 }
