@@ -12,7 +12,7 @@ class FastContactTableViewController: UITableViewController {
     
     private var _currentViewState: FastContactViewState!;
     internal var _fastContactListManager: FastContactListManager!;
-    internal var _currentListItem: Int!;
+    internal var _currentListIndex: Int!;
     internal var _lists: Array<Array<Array<IListItem>>>!;
     
     @IBAction func provideAccessWithNoAccessClicked(sender: UIButton) {
@@ -21,14 +21,14 @@ class FastContactTableViewController: UITableViewController {
             if(didProvideAccess) {
                 state = .ManyWithAccessAndFiller;
             }else{
-                state = FastContactHelper.getViewStateWithListCountAndAccess(self._lists[self._currentListItem]);
+                state = FastContactHelper.getViewStateWithListCountAndAccess(self._lists[self._currentListIndex], useFiller: self.shouldShowFillerInNonEmptyList());
             }
             self._fastContactListManager.updateListsForState(state);
         }
     }
     
     @IBAction func provideAccessWithBlockedAccessClicked(sender: UIButton) {
-        if(Constant.IOS_MAIN_VERSION >= 8.0) {
+        if(FastContactConstant.IOS_MAIN_VERSION >= 8.0) {
             UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!);
         }
     }
@@ -36,13 +36,19 @@ class FastContactTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self._currentViewState       = FastContactHelper.getDefaultViewStateBasedOnPhoneContactAccess();
-        self._fastContactListManager = FastContactListManager(listCount: self.getListCount(), updateBlock: {()->Void in
-            self._lists = self._fastContactListManager.getLists();
-            self._currentViewState = FastContactHelper.getViewStateWithListCountAndAccess(self._lists[self._currentListItem]);
-            self.tableView.reloadData();
-        });
-        self._currentListItem        = self.getDefaultListItem();
-        self._lists                  = self._fastContactListManager.getLists();
+        
+        self._fastContactListManager = FastContactListManager(
+            listCount: self.getListCount(),
+            itemsBeforeEmptyListMax: self.getItemsBeforeEmptyListMax(),
+            
+            updateBlock: {()->Void in
+                self._lists = self._fastContactListManager.getLists();
+                self._updateViewStateAndData();
+            }
+        );
+        
+        self._currentListIndex = self.getDefaultListItem();
+        self._lists            = self._fastContactListManager.getLists();
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,11 +59,11 @@ class FastContactTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return _lists[_currentListItem].count;
+        return _lists[_currentListIndex].count;
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _lists[_currentListItem][section].count;
+        return _lists[_currentListIndex][section].count;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,14 +72,14 @@ class FastContactTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var list = _lists[_currentListItem];
+        var list = _lists[_currentListIndex];
         var section = list[indexPath.section];
         var row = section[indexPath.row];
         
         if(!(row is EmptyListItem)) {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath);
         }else{
-            return self._getEmptyTableViewCellHeight();
+            return self._getEmptyTableViewCellHeight(indexPath);
         }
     }
     
@@ -92,13 +98,27 @@ class FastContactTableViewController: UITableViewController {
     }
     
     internal func getNonEmptyTableViewCell(tableView: UITableView, state: FastContactViewState) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("contact_cell") as! UITableViewCell;
-        
-        return cell;
+        return UITableViewCell();
     }
     
     internal func setViewState(state: FastContactViewState) {
         self._currentViewState = state;
+    }
+    
+    internal func getViewState()->FastContactViewState {
+        return self._currentViewState;
+    }
+    
+    internal func getItemsBeforeEmptyListMax()->Int {
+        if(FastContactConstant.IOS_MAIN_VERSION >= 8) {
+            return 3;
+        }else{
+            return 2;
+        }
+    }
+    
+    internal func shouldShowFillerInNonEmptyList() -> Bool {
+        return true;
     }
     
     internal func setProvideAccessButton(button: UIButton) {
@@ -107,7 +127,13 @@ class FastContactTableViewController: UITableViewController {
         case .EmptyNoAccess:
             self._setProvideNoAccessButton(button);
             break;
+        case .ManyNoAccess:
+            self._setProvideNoAccessButton(button);
+            break;
         case .EmptyBlockedAccessAtLeastIOS8:
+            self._setProvideBlockedAccessButton(button);
+            break;
+        case .ManyBlockedAccessAtLeastIOS8:
             self._setProvideBlockedAccessButton(button);
             break;
         default:
@@ -115,37 +141,23 @@ class FastContactTableViewController: UITableViewController {
         }
     }
     
+    private func _updateViewStateAndData() {
+        self._currentViewState = FastContactHelper.getViewStateWithListCountAndAccess(self._lists[self._currentListIndex], useFiller: shouldShowFillerInNonEmptyList());
+        self.tableView.reloadData();
+    }
+    
     /// MARK Private methods
     
     private func _getTableViewCellForState(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, state: FastContactViewState) -> UITableViewCell {
         var cell: UITableViewCell!;
         
-        switch(state) {
-        case .EmptyWithAccess:
+        var listItem: IListItem = _lists[_currentListIndex][indexPath.section][indexPath.row];
+        
+        if(listItem is EmptyListItem) {
             cell = getEmptyTableViewCell(tableView, state: state);
             cell = _getEmptyCellWithAttributes(cell);
-            break;
-        case .EmptyNoAccess:
-            cell = getEmptyTableViewCell(tableView, state: state);
-            cell = _getEmptyCellWithAttributes(cell);
-            break;
-        case .EmptyBlockedAccessAtLeastIOS8:
-            cell = getEmptyTableViewCell(tableView, state: state);
-            cell = _getEmptyCellWithAttributes(cell);
-            break;
-        case .EmptyBlockedAccessLessThanIOS8:
-            cell = getEmptyTableViewCell(tableView, state: state);
-            cell = _getEmptyCellWithAttributes(cell);
-            break;
-        case .ManyWithAccessNoFiller:
+        }else{
             cell = getNonEmptyTableViewCell(tableView, state: state);
-            break;
-        case .ManyWithAccessAndFiller:
-            cell = getNonEmptyTableViewCell(tableView, state: state);
-            break;
-        default:
-            cell = UITableViewCell();
-            break;
         }
         
         return cell;
@@ -157,8 +169,9 @@ class FastContactTableViewController: UITableViewController {
         return cell;
     }
     
-    private func _getEmptyTableViewCellHeight() -> CGFloat {
+    private func _getEmptyTableViewCellHeight(indexPath: NSIndexPath) -> CGFloat {
         var height: CGFloat = tableView.frame.height;
+        var list = _lists[_currentListIndex];
         
         if(navigationController != nil) {
             height -= navigationController!.navigationBar.frame.height;
@@ -166,6 +179,24 @@ class FastContactTableViewController: UITableViewController {
         
         height -= 20;
         
+        // Subtract the height of the rows and sections
+
+        var itemCount = 0;
+        for section in list {
+            var sectionHeight = self.tableView(self.tableView, heightForHeaderInSection: indexPath.section);
+            height -= sectionHeight;
+            for item in section {
+                if(!(item is EmptyListItem)) {
+                    var cellHeight = super.tableView(self.tableView, heightForRowAtIndexPath: indexPath);
+                    height -= cellHeight;
+                    itemCount++;
+                    if(itemCount >= getItemsBeforeEmptyListMax()) {
+                        return height;
+                    }
+                }
+            }
+        }
+
         return  height;
     }
     
@@ -176,4 +207,6 @@ class FastContactTableViewController: UITableViewController {
     private func _setProvideBlockedAccessButton(button: UIButton) {
         button.addTarget(self, action: "provideAccessWithBlockedAccessClicked:", forControlEvents: UIControlEvents.TouchUpInside);
     }
+    
+
 }

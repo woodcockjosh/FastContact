@@ -15,4 +15,7 @@ public enum FastContactViewState {
     case EmptyWithAccess;
     case ManyWithAccessAndFiller;
     case ManyWithAccessNoFiller;
+    case ManyNoAccess;
+    case ManyBlockedAccessLessThanIOS8;
+    case ManyBlockedAccessAtLeastIOS8;
 }

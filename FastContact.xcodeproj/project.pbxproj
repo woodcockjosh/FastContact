@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03C8ECB41B8A17D70048AB51 /* FastContactTableViewControllerChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8ECB31B8A17D70048AB51 /* FastContactTableViewControllerChild.swift */; };
-		03C8ECB61B8A18620048AB51 /* SomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8ECB51B8A18620048AB51 /* SomeTableViewController.swift */; };
+		03C8ECB61B8A18620048AB51 /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8ECB51B8A18620048AB51 /* ExampleTableViewController.swift */; };
 		03E1B6151B8A70FB0021EDED /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1B6141B8A70FB0021EDED /* Constant.swift */; };
 		03E696801B892E400086D3F1 /* FastContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */; };
 		03E696891B8932C30086D3F1 /* FastContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E696881B8932C30086D3F1 /* FastContactHelper.swift */; };
@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		03C8ECB31B8A17D70048AB51 /* FastContactTableViewControllerChild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactTableViewControllerChild.swift; path = ../Core/FastContactTableViewControllerChild.swift; sourceTree = "<group>"; };
-		03C8ECB51B8A18620048AB51 /* SomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeTableViewController.swift; sourceTree = "<group>"; };
+		03C8ECB51B8A18620048AB51 /* ExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
 		03E1B6141B8A70FB0021EDED /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		03E6967F1B892E400086D3F1 /* FastContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FastContactTableViewController.swift; path = ../Core/FastContactTableViewController.swift; sourceTree = "<group>"; };
 		03E696831B89310B0086D3F1 /* FastContact-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FastContact-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				03F592E61B88FD850068BA42 /* AppDelegate.swift */,
 				03F592EB1B88FD850068BA42 /* MasterViewController.swift */,
 				03F592ED1B88FD850068BA42 /* DetailViewController.swift */,
-				03C8ECB51B8A18620048AB51 /* SomeTableViewController.swift */,
+				03C8ECB51B8A18620048AB51 /* ExampleTableViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -381,7 +381,7 @@
 				03F592E71B88FD850068BA42 /* AppDelegate.swift in Sources */,
 				03F593161B88FE7F0068BA42 /* PhoneContact.swift in Sources */,
 				03E1B6151B8A70FB0021EDED /* Constant.swift in Sources */,
-				03C8ECB61B8A18620048AB51 /* SomeTableViewController.swift in Sources */,
+				03C8ECB61B8A18620048AB51 /* ExampleTableViewController.swift in Sources */,
 				03F592EC1B88FD850068BA42 /* MasterViewController.swift in Sources */,
 				03F593151B88FE7F0068BA42 /* IListItem.swift in Sources */,
 				03F592EE1B88FD850068BA42 /* DetailViewController.swift in Sources */,

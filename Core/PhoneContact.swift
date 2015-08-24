@@ -13,6 +13,12 @@ public struct PhoneContact: IListItem {
     private var _phoneNumber: String
     private var _image: UIImage;
     
+    public init(name: String, phoneNumber: String, image: UIImage) {
+        _name = name;
+        _phoneNumber = phoneNumber;
+        _image = image;
+    }
+    
     public func getName()->String{
         return self._name;
     }

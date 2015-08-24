@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct Constant {
+public struct FastContactConstant {
     public static let IOS_MAIN_VERSION: Double = {
         var systemVersion = UIDevice.currentDevice().systemVersion;
         var numbers = split(systemVersion) {$0 == "."}
