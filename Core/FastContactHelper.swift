@@ -19,11 +19,7 @@ public class FastContactHelper {
             state = FastContactViewState.EmptyWithAccess;
             break;
         case APAddressBookAccess.Denied:
-            if(FastContactConstant.IOS_MAIN_VERSION >= 8.0) {
-                state = FastContactViewState.EmptyBlockedAccessAtLeastIOS8;
-            }else{
-                state = FastContactViewState.EmptyBlockedAccessLessThanIOS8;
-            }
+            state = FastContactViewState.EmptyBlockedAccess;
             break;
         default:
             state = FastContactViewState.EmptyNoAccess;
@@ -60,11 +56,7 @@ public class FastContactHelper {
                 if(APAddressBook.access() != APAddressBookAccess.Denied){
                     return FastContactViewState.ManyNoAccess;
                 }else{
-                    if(FastContactConstant.IOS_MAIN_VERSION >= 8.0){
-                        return FastContactViewState.ManyBlockedAccessAtLeastIOS8;
-                    }else{
-                        return FastContactViewState.ManyBlockedAccessLessThanIOS8;
-                    }
+                    return FastContactViewState.ManyBlockedAccess
                 }
             }else{
                 return getDefaultViewStateBasedOnPhoneContactAccess();
@@ -74,7 +66,23 @@ public class FastContactHelper {
     
     public static func stateIsEmpty(state: FastContactViewState) -> Bool {
         
-        if(state == .EmptyNoAccess || state == .EmptyBlockedAccessAtLeastIOS8 || state == .EmptyBlockedAccessLessThanIOS8 || state == .EmptyWithAccess) {
+        if(state == .EmptyNoAccess || state == .EmptyBlockedAccess || state == .EmptyWithAccess) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public static func stateHasNoAccess(state: FastContactViewState) -> Bool {
+        if(state == FastContactViewState.EmptyNoAccess || state == FastContactViewState.ManyNoAccess){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public static func shouldAskForPermission(state: FastContactViewState) -> Bool {
+        if((stateIsBlocked(state) && FastContactConstant.IOS_MAIN_VERSION >= 8.0) || stateHasNoAccess(state)){
             return true;
         }else{
             return false;
@@ -89,19 +97,19 @@ public class FastContactHelper {
         }
     }
     
-    public static func isEmptyItemList(list: Array<Array<IListItem>>) -> Bool {
-        if((list.count > 0) && (list[0].count > 0) && (list[0][0] is EmptyListItem || list[0][list.count - 1] is EmptyListItem)){
+    public static func stateIsBlocked(state: FastContactViewState) -> Bool {
+        if(state == FastContactViewState.EmptyBlockedAccess || state == FastContactViewState.ManyBlockedAccess){
             return true;
         }else{
             return false;
         }
     }
     
-    public static func stateIsAtLeastIOS8(state: FastContactViewState)->Bool{
-        if(state == .EmptyBlockedAccessLessThanIOS8 || state == FastContactViewState.ManyBlockedAccessLessThanIOS8) {
-            return false;
-        }else{
+    public static func isEmptyItemList(list: Array<Array<IListItem>>) -> Bool {
+        if((list.count > 0) && (list[0].count > 0) && (list[0][0] is EmptyListItem || list[0][list.count - 1] is EmptyListItem)){
             return true;
+        }else{
+            return false;
         }
     }
 }

@@ -10,12 +10,10 @@ import UIKit
 
 public enum FastContactViewState {
     case EmptyNoAccess;
-    case EmptyBlockedAccessLessThanIOS8;
-    case EmptyBlockedAccessAtLeastIOS8;
+    case EmptyBlockedAccess
     case EmptyWithAccess;
     case ManyWithAccessAndFiller;
     case ManyWithAccessNoFiller;
     case ManyNoAccess;
-    case ManyBlockedAccessLessThanIOS8;
-    case ManyBlockedAccessAtLeastIOS8;
+    case ManyBlockedAccess
 }

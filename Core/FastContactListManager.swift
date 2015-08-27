@@ -26,7 +26,7 @@ public class FastContactListManager {
         var listToSet = list;
         
         // Add a fillter empty cell
-        if(state == .ManyWithAccessAndFiller || state == .ManyNoAccess || state == .ManyBlockedAccessAtLeastIOS8 || state == .ManyBlockedAccessLessThanIOS8){
+        if(state == .ManyWithAccessAndFiller || state == .ManyNoAccess || state == .ManyBlockedAccess){
             if(listToSet.count == 0){
                 listToSet.append(Array<IListItem>());
             }

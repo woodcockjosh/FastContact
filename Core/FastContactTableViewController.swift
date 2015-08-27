@@ -130,10 +130,10 @@ class FastContactTableViewController: UITableViewController {
         case .ManyNoAccess:
             self._setProvideNoAccessButton(button);
             break;
-        case .EmptyBlockedAccessAtLeastIOS8:
+        case .EmptyBlockedAccess:
             self._setProvideBlockedAccessButton(button);
             break;
-        case .ManyBlockedAccessAtLeastIOS8:
+        case .ManyBlockedAccess:
             self._setProvideBlockedAccessButton(button);
             break;
         default:
